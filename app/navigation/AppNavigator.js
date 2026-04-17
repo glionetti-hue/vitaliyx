@@ -23,6 +23,10 @@ import OnboardingScreen from '../screens/OnboardingScreen';
 import GoalsScreen from '../screens/GoalsScreen';
 import SleepScreen from '../screens/SleepScreen';
 import HealthConnectScreen from '../screens/HealthConnectScreen';
+import StressScreen from '../screens/StressScreen';
+import BodyCompositionScreen from '../screens/BodyCompositionScreen';
+import BloodComponentsScreen from '../screens/BloodComponentsScreen';
+import WorkoutScreen from '../screens/WorkoutScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab   = createBottomTabNavigator();
@@ -185,6 +189,26 @@ export default function AppNavigator() {
             <Stack.Screen
               name="HealthConnect"
               component={HealthConnectScreen}
+              options={{ presentation: 'card', animation: 'slide_from_right' }}
+            />
+            <Stack.Screen
+              name="Stress"
+              component={StressScreen}
+              options={{ presentation: 'card', animation: 'slide_from_right' }}
+            />
+            <Stack.Screen
+              name="BodyComposition"
+              component={BodyCompositionScreen}
+              options={{ presentation: 'card', animation: 'slide_from_right' }}
+            />
+            <Stack.Screen
+              name="BloodComponents"
+              component={BloodComponentsScreen}
+              options={{ presentation: 'card', animation: 'slide_from_right' }}
+            />
+            <Stack.Screen
+              name="Workout"
+              component={WorkoutScreen}
               options={{ presentation: 'card', animation: 'slide_from_right' }}
             />
           </>

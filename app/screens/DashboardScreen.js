@@ -190,7 +190,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={getStressLabel?.(stress)}
           barValue={stress || 0}
           barMax={100}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'stress' })}
+          onPress={() => navigation.navigate('Stress')}
         />
         <GBandCard
           label="HRV"
@@ -270,7 +270,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={bodyFat > 30 ? 'Elevato' : bodyFat > 25 ? 'Nella norma alta' : 'Ottimale'}
           barValue={bodyFat || 0}
           barMax={40}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bodyComposition' })}
+          onPress={() => navigation.navigate('BodyComposition')}
         />
         <GBandCard
           label="Muscoli"
@@ -281,7 +281,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={muscleMass > 40 ? 'Eccellente' : muscleMass > 33 ? 'Buono' : 'Da migliorare'}
           barValue={muscleMass || 0}
           barMax={60}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bodyComposition' })}
+          onPress={() => navigation.navigate('BodyComposition')}
         />
         <GBandCard
           label="Acqua"
@@ -292,7 +292,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={bodyWater > 60 ? 'Ottimale' : bodyWater > 50 ? 'Normale' : 'Bassa'}
           barValue={bodyWater || 0}
           barMax={80}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bodyComposition' })}
+          onPress={() => navigation.navigate('BodyComposition')}
         />
         <GBandCard
           label="BMI"
@@ -303,7 +303,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={bmi > 30 ? 'Obesità' : bmi > 25 ? 'Sovrappeso' : bmi > 18.5 ? 'Normale' : 'Sottopeso'}
           barValue={bmi || 0}
           barMax={40}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bodyComposition' })}
+          onPress={() => navigation.navigate('BodyComposition')}
         />
       </View>
 
@@ -319,7 +319,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={uricAcid > 420 ? 'Alta' : uricAcid < 150 ? 'Bassa' : 'Normale'}
           barValue={uricAcid || 0}
           barMax={600}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bloodComponents', tab: 'uric' })}
+          onPress={() => navigation.navigate('BloodComponents')}
         />
         <GBandCard
           label="Colesterolo"
@@ -330,7 +330,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={cholesterol > 5.17 ? 'Alto' : cholesterol < 2.8 ? 'Basso' : 'Normale'}
           barValue={cholesterol ? (cholesterol / 8) * 100 : 0}
           barMax={100}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bloodComponents', tab: 'lipids' })}
+          onPress={() => navigation.navigate('BloodComponents')}
         />
         <GBandCard
           label="Trigliceridi"
@@ -341,7 +341,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={triglycerides > 1.7 ? 'Alti' : 'Normale'}
           barValue={triglycerides ? (triglycerides / 4) * 100 : 0}
           barMax={100}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bloodComponents', tab: 'lipids' })}
+          onPress={() => navigation.navigate('BloodComponents')}
         />
         <GBandCard
           label="HDL / LDL"
@@ -352,7 +352,7 @@ export default function DashboardScreen({ navigation }) {
           sublabel={`LDL ${ldl ? ldl.toFixed(2) : '—'}`}
           barValue={hdl ? (hdl / 2) * 100 : 0}
           barMax={100}
-          onPress={() => navigation.navigate('MetricDetail', { metricKey: 'bloodComponents', tab: 'lipids' })}
+          onPress={() => navigation.navigate('BloodComponents')}
         />
       </View>
 
@@ -429,6 +429,19 @@ export default function DashboardScreen({ navigation }) {
           </View>
         </TouchableOpacity>
       )}
+
+      {/* ── Workout ── */}
+      <TouchableOpacity
+        style={styles.workoutBanner}
+        onPress={() => navigation.navigate('Workout')}
+        activeOpacity={0.85}
+      >
+        <Text style={styles.workoutEmoji}>🏃</Text>
+        <View style={styles.recBody}>
+          <Text style={styles.workoutTitle}>Allenamento</Text>
+          <Text style={styles.workoutSub}>30 sport disponibili — guidato o libero →</Text>
+        </View>
+      </TouchableOpacity>
 
       {/* ── Patch consigliato ── */}
       {recommendation && (
@@ -703,6 +716,31 @@ const styles = StyleSheet.create({
     fontFamily: fonts.semiBold,
     fontSize: 11,
     color: colors.cyan,
+  },
+
+  // Workout banner
+  workoutBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: '#2ECC71' + '18',
+    borderWidth: 1,
+    borderColor: '#2ECC71' + '55',
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 14,
+  },
+  workoutEmoji: { fontSize: 28 },
+  workoutTitle: {
+    fontFamily: fonts.semiBold,
+    fontSize: 14,
+    color: colors.text,
+  },
+  workoutSub: {
+    fontFamily: fonts.regular,
+    fontSize: 12,
+    color: '#2ECC71',
+    marginTop: 2,
   },
 
   // Patch banner
