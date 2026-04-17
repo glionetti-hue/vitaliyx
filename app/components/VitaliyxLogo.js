@@ -17,16 +17,16 @@ export default function VitaliyxLogo({ size = 32, centered = false }) {
     <View style={centered && { alignSelf: 'center' }}>
       <Svg width={width} height={height} viewBox="0 0 257 110">
         <Defs>
-          {/* Gradiente testo: periwinkle → navy, come nel logo originale */}
+          {/* Testo: blu navy scuro come nel logo brand */}
           <LinearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="0">
-            <Stop offset="0%"   stopColor="#8888FF" />
-            <Stop offset="60%"  stopColor="#3333CC" />
-            <Stop offset="100%" stopColor="#0808AA" />
+            <Stop offset="0%"   stopColor="#0D0D6B" />
+            <Stop offset="100%" stopColor="#0D0D6B" />
           </LinearGradient>
-          {/* Stelle/accenti in blu scuro */}
-          <LinearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
-            <Stop offset="0%"   stopColor="#2222BB" />
-            <Stop offset="100%" stopColor="#000080" />
+          {/* Stella: gradiente da blu scuro a celeste/bianco */}
+          <LinearGradient id="starGrad" x1="1" y1="1" x2="0" y2="0">
+            <Stop offset="0%"   stopColor="#0D0D6B" />
+            <Stop offset="60%"  stopColor="#4444AA" />
+            <Stop offset="100%" stopColor="#C8C8F0" />
           </LinearGradient>
         </Defs>
 
